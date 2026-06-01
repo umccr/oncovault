@@ -1,0 +1,33 @@
+version: 2
+
+models:
+
+  - name: link_library_workflow_run
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - unique
+          - not_null
+      - name: workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('hub_workflow_run')
+                field: workflow_run_hk
+      - name: library_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('hub_library')
+                field: library_hk
+      - name: load_date
+        data_type: date
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp

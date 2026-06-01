@@ -76,4 +76,4 @@ dbt run -s hub_workflow_run --full-refresh
 * Navigate to the Athena QueryEditor.
 * Select the `Workgroup: development`.
 * Select the `Data source: AwsDataCatalog`.
-* Select the `Database: oncovault_dev`.
+* Select the `Database: oncovault_dev_dcl`.

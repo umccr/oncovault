@@ -79,3 +79,4 @@ sources:
       - name: teal_tellength
       - name: virusbreakend_vcfsummary
       - name: virusinterpreter_annotated
+      - name: metadata

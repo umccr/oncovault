@@ -1,0 +1,35 @@
+version: 2
+
+models:
+
+  - name: hub_workflow_run
+    columns:
+      - name: workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - unique
+          - not_null
+      - name: portal_run_id
+        data_type: varchar(16)
+      - name: load_date
+        data_type: date
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+
+  - name: hub_library
+    columns:
+      - name: library_hk
+        data_type: varchar(64)
+        data_tests:
+          - unique
+          - not_null
+      - name: library_id
+        data_type: varchar(64)
+      - name: load_date
+        data_type: date
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp

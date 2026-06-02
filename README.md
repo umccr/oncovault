@@ -70,6 +70,20 @@ BUT. Doing so will lose the model's historical `load_datetime` history.
 dbt run -s hub_workflow_run --full-refresh
 ```
 
+Or like so.
+
+```
+dbt run -s models/dcl/raw_vault/amber/*
+```
+
+```
+dbt test -s models/dcl/raw_vault/amber/*
+```
+
+```
+dbt run -s models/dcl/raw_vault/amber/* --full-refresh
+```
+
 ## Athena
 
 * Login to the Data Warehouse AWS account console using `AWSPowerUserAccess` role.

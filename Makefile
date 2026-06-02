@@ -33,9 +33,12 @@ get-cols:
 	@yq '.models[$(INDEX)].columns[].name' $(SCHEMA)
 
 # Usage:
-# 	git clone oncoglue at the same level as orcavault
+# 	git clone oncoglue at the same level as oncovault
 up-schema-purple:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/purple*.yml > models/dcl/raw_vault/purple/_schema.yml
 
 up-schema-cuppa:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/cuppa*.yml > models/dcl/raw_vault/cuppa/_schema.yml
+
+up-schema-amber:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/amber*.yml > models/dcl/raw_vault/amber/_schema.yml

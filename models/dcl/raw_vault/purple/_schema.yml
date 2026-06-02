@@ -1,0 +1,549 @@
+version: 2
+models:
+  - name: sat_purple_cnvgenetsv
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: chrom
+        data_type: varchar
+      - name: start
+        data_type: double
+      - name: end
+        data_type: double
+      - name: gene
+        data_type: varchar
+      - name: cn_min
+        data_type: double
+      - name: cn_max
+        data_type: double
+      - name: somatic_regions
+        data_type: double
+      - name: transcript_id
+        data_type: varchar
+      - name: is_canonical
+        data_type: varchar
+      - name: chrom_band
+        data_type: varchar
+      - name: regions_min
+        data_type: double
+      - name: start_region_min
+        data_type: double
+      - name: end_region_min
+        data_type: double
+      - name: start_region_min_support
+        data_type: varchar
+      - name: end_region_min_support
+        data_type: varchar
+      - name: region_min_method
+        data_type: varchar
+      - name: cn_minor_allele_min
+        data_type: double
+      - name: window_count_depth
+        data_type: double
+      - name: gc_content
+        data_type: double
+
+  - name: sat_purple_cnvsomtsv
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: chrom
+        data_type: varchar
+      - name: start
+        data_type: double
+      - name: end
+        data_type: double
+      - name: cn
+        data_type: double
+      - name: baf_count
+        data_type: double
+      - name: baf_observed
+        data_type: double
+      - name: baf
+        data_type: double
+      - name: start_segment_support
+        data_type: varchar
+      - name: end_segment_support
+        data_type: varchar
+      - name: method
+        data_type: varchar
+      - name: window_count_depth
+        data_type: double
+      - name: gc_content
+        data_type: double
+      - name: start_min
+        data_type: double
+      - name: start_max
+        data_type: double
+      - name: cn_minor_allele
+        data_type: double
+      - name: cn_major_allele
+        data_type: double
+
+  - name: sat_purple_drivercatalog
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: chrom
+        data_type: varchar
+      - name: chrom_band
+        data_type: varchar
+      - name: gene
+        data_type: varchar
+      - name: transcript
+        data_type: varchar
+      - name: is_canonical
+        data_type: varchar
+      - name: driver
+        data_type: varchar
+      - name: category
+        data_type: varchar
+      - name: likelihood_method
+        data_type: varchar
+      - name: driver_likelihood
+        data_type: double
+      - name: missense
+        data_type: double
+      - name: nonsense
+        data_type: double
+      - name: splice
+        data_type: double
+      - name: inframe
+        data_type: double
+      - name: frameshift
+        data_type: double
+      - name: biallelic
+        data_type: varchar
+      - name: cn_min
+        data_type: double
+      - name: cn_max
+        data_type: double
+
+  - name: sat_purple_germdeltsv
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: gene
+        data_type: varchar
+      - name: chrom
+        data_type: varchar
+      - name: chrom_band
+        data_type: varchar
+      - name: start_region
+        data_type: double
+      - name: end_region
+        data_type: double
+      - name: window_count_depth
+        data_type: double
+      - name: start_exon
+        data_type: double
+      - name: end_exon
+        data_type: double
+      - name: detection_method
+        data_type: varchar
+      - name: status_germline
+        data_type: varchar
+      - name: status_tumor
+        data_type: varchar
+      - name: cn_germline
+        data_type: double
+      - name: cn_tumor
+        data_type: double
+      - name: filter
+        data_type: varchar
+      - name: cohort_frequency
+        data_type: double
+      - name: reported
+        data_type: varchar
+
+  - name: sat_purple_purityrange
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: purity
+        data_type: double
+      - name: norm_factor
+        data_type: double
+      - name: score
+        data_type: double
+      - name: diploid_proportion
+        data_type: double
+      - name: ploidy
+        data_type: double
+      - name: somatic_penalty
+        data_type: double
+
+  - name: sat_purple_puritytsv
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: purity
+        data_type: double
+      - name: norm_factor
+        data_type: double
+      - name: fit_score
+        data_type: double
+      - name: diploid_proportion
+        data_type: double
+      - name: ploidy
+        data_type: double
+      - name: gender
+        data_type: varchar
+      - name: status
+        data_type: varchar
+      - name: polyclonal_proportion
+        data_type: double
+      - name: purity_min
+        data_type: double
+      - name: purity_max
+        data_type: double
+      - name: ploidy_min
+        data_type: double
+      - name: ploidy_max
+        data_type: double
+      - name: diploid_proportion_min
+        data_type: double
+      - name: diploid_proportion_max
+        data_type: double
+      - name: somatic_penalty
+        data_type: double
+      - name: whole_genome_duplication
+        data_type: varchar
+      - name: ms_indels_per_mb
+        data_type: double
+      - name: ms_status
+        data_type: varchar
+      - name: tml
+        data_type: double
+      - name: tml_status
+        data_type: varchar
+      - name: tmb_per_mb
+        data_type: double
+      - name: tmb_status
+        data_type: varchar
+      - name: tmb_sv
+        data_type: double
+      - name: run_mode
+        data_type: varchar
+      - name: targeted
+        data_type: varchar
+
+  - name: sat_purple_qc
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: qc_status
+        data_type: varchar
+      - name: method
+        data_type: varchar
+      - name: cn_segments
+        data_type: bigint
+      - name: cn_segments_unsupported
+        data_type: bigint
+      - name: purity
+        data_type: double
+      - name: gender_amber
+        data_type: varchar
+      - name: gender_cobalt
+        data_type: varchar
+      - name: deleted_genes
+        data_type: bigint
+      - name: contamination
+        data_type: double
+      - name: germline_aberrations
+        data_type: varchar
+      - name: mean_depth_amber
+        data_type: double
+      - name: loh_percent
+        data_type: double
+      - name: tinc_level
+        data_type: double
+      - name: chimerism_percent
+        data_type: double
+
+  - name: sat_purple_somclonality
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: peak
+        data_type: double
+      - name: bucket
+        data_type: double
+      - name: bucket_weight
+        data_type: double
+      - name: peak_avg_weight
+        data_type: double
+      - name: is_valid
+        data_type: varchar
+      - name: is_subclonal
+        data_type: varchar
+
+  - name: sat_purple_somhist
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: variant_cn_bucket
+        data_type: double
+      - name: cn_bucket
+        data_type: double
+      - name: count
+        data_type: double
+
+  - name: sat_purple_version
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: version
+        data_type: varchar
+      - name: date_build
+        data_type: varchar

@@ -25,3 +25,14 @@ debug:
 test:
 	@dbt deps
 	@dbt test
+
+# Usage:
+# 	make get-cols INDEX=0 SCHEMA=models/dcl/raw_vault/purple/_schema.yml
+# 	make get-cols INDEX=0 SCHEMA=models/dcl/raw_vault/purple/_schema.yml | pbcopy
+get-cols:
+	@yq '.models[$(INDEX)].columns[].name' $(SCHEMA)
+
+# Usage:
+# 	git clone oncoglue at the same level as orcavault
+up-schema-purple:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/purple*.yml > models/dcl/raw_vault/purple/_schema.yml

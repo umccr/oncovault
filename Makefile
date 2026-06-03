@@ -51,3 +51,6 @@ up-schema-chord:
 
 up-schema-alignments:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/alignments*.yml > models/dcl/raw_vault/alignments/_schema.yml
+
+up-schema-cider:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/cider*.yml > models/dcl/raw_vault/cider/_schema.yml

@@ -1,0 +1,233 @@
+version: 2
+models:
+  - name: sat_cider_blastn
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cdr3_seq
+        data_type: varchar
+      - name: cdr3_aa
+        data_type: varchar
+      - name: match_type
+        data_type: varchar
+      - name: gene
+        data_type: varchar
+      - name: functionality
+        data_type: varchar
+      - name: p_ident
+        data_type: double
+      - name: seq_length
+        data_type: double
+      - name: align_start
+        data_type: double
+      - name: align_end
+        data_type: double
+      - name: align_gaps
+        data_type: double
+      - name: align_evalue
+        data_type: double
+      - name: align_bitscore
+        data_type: double
+      - name: ref_strand
+        data_type: varchar
+      - name: ref_start
+        data_type: double
+      - name: ref_end
+        data_type: double
+      - name: ref_contig
+        data_type: varchar
+      - name: ref_seq
+        data_type: varchar
+
+  - name: sat_cider_locusstats
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: locus
+        data_type: varchar
+      - name: reads_used
+        data_type: double
+      - name: reads_total
+        data_type: double
+      - name: downsampled
+        data_type: varchar
+      - name: sequences
+        data_type: double
+      - name: sequences_pass
+        data_type: double
+
+  - name: sat_cider_vdj
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cdr3_seq
+        data_type: varchar
+      - name: cdr3_aa
+        data_type: varchar
+      - name: locus
+        data_type: varchar
+      - name: filter
+        data_type: varchar
+      - name: blastn_status
+        data_type: varchar
+      - name: min_high_qual_base_reads
+        data_type: double
+      - name: assigned_reads
+        data_type: double
+      - name: v_aligned_reads
+        data_type: double
+      - name: j_aligned_reads
+        data_type: double
+      - name: in_frame
+        data_type: varchar
+      - name: contains_stop
+        data_type: varchar
+      - name: v_type
+        data_type: varchar
+      - name: v_anchor_start
+        data_type: double
+      - name: v_anchor_end
+        data_type: double
+      - name: v_anchor_seq
+        data_type: varchar
+      - name: v_anchor_template_seq
+        data_type: varchar
+      - name: v_anchor_aa
+        data_type: varchar
+      - name: v_anchor_template_aa
+        data_type: varchar
+      - name: v_match_method
+        data_type: varchar
+      - name: v_similarity_score
+        data_type: double
+      - name: v_non_split_reads
+        data_type: double
+      - name: j_type
+        data_type: varchar
+      - name: j_anchor_start
+        data_type: double
+      - name: j_anchor_end
+        data_type: double
+      - name: j_anchor_seq
+        data_type: varchar
+      - name: j_anchor_template_seq
+        data_type: varchar
+      - name: j_anchor_aa
+        data_type: varchar
+      - name: j_anchor_template_aa
+        data_type: varchar
+      - name: j_match_method
+        data_type: varchar
+      - name: j_similarity_score
+        data_type: double
+      - name: j_non_split_reads
+        data_type: double
+      - name: v_gene
+        data_type: varchar
+      - name: v_pident
+        data_type: double
+      - name: v_align_start
+        data_type: double
+      - name: v_align_end
+        data_type: double
+      - name: d_gene
+        data_type: varchar
+      - name: d_pident
+        data_type: double
+      - name: d_align_start
+        data_type: double
+      - name: d_align_end
+        data_type: double
+      - name: j_gene
+        data_type: varchar
+      - name: j_pident
+        data_type: double
+      - name: j_align_start
+        data_type: double
+      - name: j_align_end
+        data_type: double
+      - name: v_primer_matches
+        data_type: double
+      - name: j_primer_matches
+        data_type: double
+      - name: layout_id
+        data_type: varchar
+      - name: full_seq
+        data_type: varchar
+      - name: support
+        data_type: varchar

@@ -1,0 +1,819 @@
+version: 2
+models:
+  - name: sat_linx_breakends
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: bnd_id
+        data_type: varchar
+      - name: sv_id
+        data_type: varchar
+      - name: is_start
+        data_type: varchar
+      - name: gene
+        data_type: varchar
+      - name: transcript_id
+        data_type: varchar
+      - name: canonical
+        data_type: varchar
+      - name: gene_orientation
+        data_type: varchar
+      - name: disruptive
+        data_type: varchar
+      - name: reported_disruption
+        data_type: varchar
+      - name: undisrupted_cn
+        data_type: double
+      - name: region_type
+        data_type: varchar
+      - name: coding_type
+        data_type: varchar
+      - name: biotype
+        data_type: varchar
+      - name: exonic_basephase
+        data_type: double
+      - name: next_splice_exon_rank
+        data_type: double
+      - name: next_splice_exon_phase
+        data_type: double
+      - name: next_splice_distance
+        data_type: double
+      - name: total_exon_count
+        data_type: double
+      - name: exon_up
+        data_type: double
+      - name: exon_down
+        data_type: double
+
+  - name: sat_linx_clusters
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: category
+        data_type: varchar
+      - name: synthetic
+        data_type: varchar
+      - name: resolved_type
+        data_type: varchar
+      - name: cluster_count
+        data_type: double
+      - name: cluster_desc
+        data_type: varchar
+
+  - name: sat_linx_drivercatalog
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: chrom
+        data_type: varchar
+      - name: chrom_band
+        data_type: varchar
+      - name: gene
+        data_type: varchar
+      - name: transcript
+        data_type: varchar
+      - name: is_canonical
+        data_type: varchar
+      - name: driver
+        data_type: varchar
+      - name: category
+        data_type: varchar
+      - name: likelihood_method
+        data_type: varchar
+      - name: driver_likelihood
+        data_type: double
+      - name: missense
+        data_type: double
+      - name: nonsense
+        data_type: double
+      - name: splice
+        data_type: double
+      - name: inframe
+        data_type: double
+      - name: frameshift
+        data_type: double
+      - name: biallelic
+        data_type: varchar
+      - name: min_cn
+        data_type: double
+      - name: max_cn
+        data_type: double
+
+  - name: sat_linx_drivers
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: gene
+        data_type: varchar
+      - name: event_type
+        data_type: varchar
+
+  - name: sat_linx_fusions
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: breakendid5
+        data_type: varchar
+      - name: breakendid3
+        data_type: varchar
+      - name: name
+        data_type: varchar
+      - name: reported
+        data_type: varchar
+      - name: reported_type
+        data_type: varchar
+      - name: reportable_reasons
+        data_type: varchar
+      - name: phased
+        data_type: varchar
+      - name: likelihood
+        data_type: varchar
+      - name: chain_length
+        data_type: double
+      - name: chain_links
+        data_type: double
+      - name: chain_terminated
+        data_type: varchar
+      - name: domains_kept
+        data_type: varchar
+      - name: domains_lost
+        data_type: varchar
+      - name: skipped_exons_up
+        data_type: double
+      - name: skipped_exons_down
+        data_type: double
+      - name: fused_exon_up
+        data_type: double
+      - name: fused_exon_down
+        data_type: double
+      - name: gene_start
+        data_type: varchar
+      - name: gene_context_start
+        data_type: varchar
+      - name: transcript_start
+        data_type: varchar
+      - name: gene_end
+        data_type: varchar
+      - name: gene_context_end
+        data_type: varchar
+      - name: transcript_end
+        data_type: varchar
+      - name: junction_cn
+        data_type: double
+
+  - name: sat_linx_links
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: chain_id
+        data_type: varchar
+      - name: chain_index
+        data_type: varchar
+      - name: chain_count
+        data_type: double
+      - name: lower_sv_id
+        data_type: varchar
+      - name: upper_sv_id
+        data_type: varchar
+      - name: lower_breakend_is_start
+        data_type: varchar
+      - name: upper_breakend_is_start
+        data_type: varchar
+      - name: chrom
+        data_type: varchar
+      - name: arm
+        data_type: varchar
+      - name: assembled
+        data_type: varchar
+      - name: traversed_sv_count
+        data_type: double
+      - name: length
+        data_type: double
+      - name: junction_cn
+        data_type: double
+      - name: junction_cn_uncertainty
+        data_type: double
+      - name: pseudogene_info
+        data_type: varchar
+      - name: ecdna
+        data_type: varchar
+
+  - name: sat_linx_neoepitope
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: gene_id_up
+        data_type: varchar
+      - name: gene_name_up
+        data_type: varchar
+      - name: chrom_up
+        data_type: varchar
+      - name: pos_up
+        data_type: double
+      - name: orientation_up
+        data_type: double
+      - name: sv_id_up
+        data_type: varchar
+      - name: gene_id_down
+        data_type: varchar
+      - name: gene_name_down
+        data_type: varchar
+      - name: chrom_down
+        data_type: varchar
+      - name: pos_down
+        data_type: double
+      - name: orientation_down
+        data_type: double
+      - name: sv_id_down
+        data_type: varchar
+      - name: junc_cn
+        data_type: double
+      - name: cn
+        data_type: double
+      - name: insert_seq
+        data_type: varchar
+      - name: chain_length
+        data_type: double
+      - name: transcripts_up
+        data_type: varchar
+      - name: transcripts_down
+        data_type: varchar
+
+  - name: sat_linx_svs
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: vcf_id
+        data_type: varchar
+      - name: sv_id
+        data_type: varchar
+      - name: cluster_id
+        data_type: varchar
+      - name: cluster_reason
+        data_type: varchar
+      - name: fragile_site_start
+        data_type: varchar
+      - name: fragile_site_end
+        data_type: varchar
+      - name: is_foldback
+        data_type: varchar
+      - name: linetype_start
+        data_type: varchar
+      - name: linetype_end
+        data_type: varchar
+      - name: junction_cn_min
+        data_type: double
+      - name: junction_cn_max
+        data_type: double
+      - name: gene_start
+        data_type: varchar
+      - name: gene_end
+        data_type: varchar
+      - name: local_topology_id_start
+        data_type: varchar
+      - name: local_topology_id_end
+        data_type: varchar
+      - name: local_topology_start
+        data_type: varchar
+      - name: local_topology_end
+        data_type: varchar
+      - name: local_ti_count_start
+        data_type: double
+      - name: local_ti_count_end
+        data_type: double
+
+  - name: sat_linx_version
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: version
+        data_type: varchar
+      - name: date_build
+        data_type: varchar
+
+  - name: sat_linx_viscn
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: chrom
+        data_type: varchar
+      - name: start
+        data_type: double
+      - name: end
+        data_type: double
+      - name: cn
+        data_type: double
+      - name: baf
+        data_type: double
+
+  - name: sat_linx_visfusion
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: reportable
+        data_type: varchar
+      - name: gene_name_up
+        data_type: varchar
+      - name: transcript_up
+        data_type: varchar
+      - name: chr_up
+        data_type: varchar
+      - name: pos_up
+        data_type: varchar
+      - name: strand_up
+        data_type: varchar
+      - name: region_type_up
+        data_type: varchar
+      - name: fused_exon_up
+        data_type: varchar
+      - name: gene_name_down
+        data_type: varchar
+      - name: transcript_down
+        data_type: varchar
+      - name: chr_down
+        data_type: varchar
+      - name: pos_down
+        data_type: varchar
+      - name: strand_down
+        data_type: varchar
+      - name: region_type_down
+        data_type: varchar
+      - name: fused_exon_down
+        data_type: varchar
+
+  - name: sat_linx_visgeneexon
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: gene
+        data_type: varchar
+      - name: transcript
+        data_type: varchar
+      - name: chrom
+        data_type: varchar
+      - name: annotation_type
+        data_type: varchar
+      - name: exon_rank
+        data_type: varchar
+      - name: exon_start
+        data_type: varchar
+      - name: exon_end
+        data_type: varchar
+
+  - name: sat_linx_visproteindomain
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: transcript
+        data_type: varchar
+      - name: chrom
+        data_type: varchar
+      - name: start
+        data_type: varchar
+      - name: end
+        data_type: varchar
+      - name: info
+        data_type: varchar
+
+  - name: sat_linx_vissegments
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: chain_id
+        data_type: varchar
+      - name: chrom
+        data_type: varchar
+      - name: pos_start
+        data_type: varchar
+      - name: pos_end
+        data_type: varchar
+      - name: link_ploidy
+        data_type: double
+      - name: in_double_minute
+        data_type: varchar
+
+  - name: sat_linx_vissvdata
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: cluster_id
+        data_type: varchar
+      - name: chain_id
+        data_type: varchar
+      - name: sv_id
+        data_type: varchar
+      - name: type
+        data_type: varchar
+      - name: resolved_type
+        data_type: varchar
+      - name: is_synthetic
+        data_type: varchar
+      - name: chr_start
+        data_type: varchar
+      - name: chr_end
+        data_type: varchar
+      - name: pos_start
+        data_type: double
+      - name: pos_end
+        data_type: double
+      - name: orient_start
+        data_type: double
+      - name: orient_end
+        data_type: double
+      - name: info_start
+        data_type: varchar
+      - name: info_end
+        data_type: varchar
+      - name: junction_cn
+        data_type: double
+      - name: in_double_minute
+        data_type: varchar

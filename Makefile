@@ -66,3 +66,6 @@ up-schema-neo:
 
 up-schema-peach:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/peach*.yml > models/dcl/raw_vault/peach/_schema.yml
+
+up-schema-sage:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/sage*.yml > models/dcl/raw_vault/sage/_schema.yml

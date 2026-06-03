@@ -1,0 +1,195 @@
+version: 2
+models:
+  - name: sat_neo_candidates
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: ne_id
+        data_type: bigint
+      - name: variant_type
+        data_type: varchar
+      - name: variant_info
+        data_type: varchar
+      - name: variant_cn
+        data_type: double
+      - name: cn
+        data_type: double
+      - name: subclonal_likelihood
+        data_type: double
+      - name: gene_id_up
+        data_type: varchar
+      - name: gene_id_down
+        data_type: varchar
+      - name: gene_name_up
+        data_type: varchar
+      - name: gene_name_down
+        data_type: varchar
+      - name: chr_up
+        data_type: varchar
+      - name: chr_down
+        data_type: varchar
+      - name: orient_up
+        data_type: double
+      - name: orient_down
+        data_type: double
+      - name: aa_upstream
+        data_type: varchar
+      - name: aa_downstream
+        data_type: varchar
+      - name: aa_novel
+        data_type: varchar
+      - name: nmd_min
+        data_type: double
+      - name: nmd_max
+        data_type: double
+      - name: coding_bases_length_min
+        data_type: double
+      - name: coding_bases_length_max
+        data_type: double
+      - name: fused_intron_length
+        data_type: double
+      - name: skipped_donors
+        data_type: double
+      - name: skipped_acceptors
+        data_type: double
+      - name: transcripts_up
+        data_type: varchar
+      - name: transcripts_down
+        data_type: varchar
+      - name: aa_wildtype
+        data_type: varchar
+      - name: coding_base_up_pos_start
+        data_type: double
+      - name: coding_base_up_pos_end
+        data_type: double
+      - name: coding_bases_up
+        data_type: varchar
+      - name: coding_base_cigar_up
+        data_type: varchar
+      - name: coding_base_down_pos_start
+        data_type: double
+      - name: coding_base_down_pos_end
+        data_type: double
+      - name: coding_bases_down
+        data_type: varchar
+      - name: coding_base_cigar_down
+        data_type: varchar
+
+  - name: sat_neo_predictions
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: ne_id
+        data_type: bigint
+      - name: variant_type
+        data_type: varchar
+      - name: variant_info
+        data_type: varchar
+      - name: gene_name
+        data_type: varchar
+      - name: aa_up
+        data_type: varchar
+      - name: aa_novel
+        data_type: varchar
+      - name: aa_down
+        data_type: varchar
+      - name: peptide_count
+        data_type: double
+      - name: tpm_source
+        data_type: varchar
+      - name: rna_frags
+        data_type: double
+      - name: rna_depth
+        data_type: double
+      - name: tpm_up
+        data_type: double
+      - name: tpm_down
+        data_type: double
+      - name: tpm_expected
+        data_type: double
+      - name: tpm_raw_effective
+        data_type: double
+      - name: tpm_effective
+        data_type: double
+      - name: tpm_cancer_up
+        data_type: double
+      - name: tpm_cancer_down
+        data_type: double
+      - name: tpm_pancancer_up
+        data_type: double
+      - name: tpm_pancancer_down
+        data_type: double
+      - name: nmd_min
+        data_type: double
+      - name: nmd_max
+        data_type: double
+      - name: coding_bases_length_min
+        data_type: double
+      - name: coding_bases_length_max
+        data_type: double
+      - name: fused_intron_length
+        data_type: double
+      - name: skipped_donors
+        data_type: double
+      - name: skipped_acceptors
+        data_type: double
+      - name: transcripts_up
+        data_type: varchar
+      - name: transcripts_down
+        data_type: varchar
+      - name: variant_cn
+        data_type: double
+      - name: cn
+        data_type: double
+      - name: subclonal_likelihood
+        data_type: double

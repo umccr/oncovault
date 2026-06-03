@@ -45,3 +45,6 @@ up-schema-amber:
 
 up-schema-cobalt:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/cobalt*.yml > models/dcl/raw_vault/cobalt/_schema.yml
+
+up-schema-chord:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/chord*.yml > models/dcl/raw_vault/chord/_schema.yml

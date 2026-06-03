@@ -1,0 +1,81 @@
+version: 2
+models:
+  - name: sat_virusbreakend_vcfsummary
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: taxid_genus
+        data_type: varchar
+      - name: name_genus
+        data_type: varchar
+      - name: reads_genus_tree
+        data_type: bigint
+      - name: taxid_species
+        data_type: varchar
+      - name: name_species
+        data_type: varchar
+      - name: reads_species_tree
+        data_type: bigint
+      - name: taxid_assigned
+        data_type: varchar
+      - name: name_assigned
+        data_type: varchar
+      - name: reads_assigned_tree
+        data_type: bigint
+      - name: reads_assigned_direct
+        data_type: bigint
+      - name: reference
+        data_type: varchar
+      - name: reference_taxid
+        data_type: varchar
+      - name: reference_kmer_count
+        data_type: bigint
+      - name: alternate_kmer_count
+        data_type: bigint
+      - name: rname
+        data_type: varchar
+      - name: startpos
+        data_type: bigint
+      - name: endpos
+        data_type: bigint
+      - name: numreads
+        data_type: bigint
+      - name: covbases
+        data_type: bigint
+      - name: coverage
+        data_type: double
+      - name: meandepth
+        data_type: double
+      - name: meanbaseq
+        data_type: double
+      - name: meanmapq
+        data_type: double
+      - name: integrations
+        data_type: double
+      - name: qc_status
+        data_type: varchar

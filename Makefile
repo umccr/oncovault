@@ -60,3 +60,6 @@ up-schema-lilac:
 
 up-schema-linx:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/linx*.yml > models/dcl/raw_vault/linx/_schema.yml
+
+up-schema-neo:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/neo*.yml > models/dcl/raw_vault/neo/_schema.yml

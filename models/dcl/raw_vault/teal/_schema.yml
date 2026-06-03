@@ -1,0 +1,135 @@
+version: 2
+models:
+  - name: sat_teal_breakend
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: chrom
+        data_type: varchar
+      - name: position
+        data_type: double
+      - name: orientation
+        data_type: double
+      - name: cg_rich
+        data_type: varchar
+      - name: filter
+        data_type: varchar
+      - name: in_tumor
+        data_type: varchar
+      - name: in_germline
+        data_type: varchar
+      - name: distance_to_telomere
+        data_type: double
+      - name: max_telomeric_length
+        data_type: double
+      - name: max_anchor_length
+        data_type: double
+      - name: tumor_sr_tel_dp_tel
+        data_type: double
+      - name: tumor_sr_tel_dp_no_tel
+        data_type: double
+      - name: tumor_sr_tel_no_dp
+        data_type: double
+      - name: tumor_sr_no_tel_dp_tel
+        data_type: double
+      - name: tumor_dp_tel_no_sr
+        data_type: double
+      - name: tumor_total_support
+        data_type: double
+      - name: tumor_mapq
+        data_type: double
+      - name: germ_sr_tel_dp_tel
+        data_type: double
+      - name: germ_sr_tel_dp_no_tel
+        data_type: double
+      - name: germ_sr_tel_no_dp
+        data_type: double
+      - name: germ_sr_no_tel_dp_tel
+        data_type: double
+      - name: germ_dp_tel_no_sr
+        data_type: double
+      - name: germ_total_support
+        data_type: double
+      - name: germ_mapq
+        data_type: double
+
+  - name: sat_teal_tellength
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: sample_id
+        data_type: varchar
+      - name: type
+        data_type: varchar
+      - name: tel_length_raw
+        data_type: double
+      - name: tel_length_final
+        data_type: double
+      - name: fragments_full
+        data_type: double
+      - name: fragments_c_rich_partial
+        data_type: double
+      - name: fragments_g_rich_partial
+        data_type: double
+      - name: reads_telomeric_total
+        data_type: double
+      - name: purity
+        data_type: double
+      - name: ploidy
+        data_type: double
+      - name: dup_prop
+        data_type: double
+      - name: dp_read_mean
+        data_type: double
+      - name: dp_read_gc50
+        data_type: double

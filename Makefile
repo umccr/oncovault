@@ -69,3 +69,6 @@ up-schema-peach:
 
 up-schema-sage:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/sage*.yml > models/dcl/raw_vault/sage/_schema.yml
+
+up-schema-sigs:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/sigs*.yml > models/dcl/raw_vault/sigs/_schema.yml

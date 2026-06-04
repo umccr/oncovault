@@ -2,8 +2,10 @@
     lower(to_hex(sha256(
         cast(concat(
             {% for col in columns %}
-                coalesce(cast({{ col }} as varchar), '')
-                {% if not loop.last %},{% endif %}
+                lower(to_hex(sha256(cast(
+                    coalesce(cast({{ col }} as varchar), '')
+                as varbinary))))
+                {% if not loop.last %}, {% endif %}
             {% endfor %}
         ) as varbinary)
     )))

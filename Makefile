@@ -81,3 +81,6 @@ up-schema-virusbreakend:
 
 up-schema-virusinterpreter:
 	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/virusinterpreter*.yml > models/dcl/raw_vault/virusinterpreter/_schema.yml
+
+up-schema-bamtools:
+	@cat ../oncoglue/tidywigits-schema-translator/schema/tidywigits/0.0.7.9003/2025091002d1f664/dcl/bamtools*.yml > models/dcl/raw_vault/bamtools/_schema.yml

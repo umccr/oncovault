@@ -63,7 +63,6 @@ models:
         data_type: varchar
       - name: ref_seq
         data_type: varchar
-
   - name: sat_cider_locusstats
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -105,7 +104,6 @@ models:
         data_type: double
       - name: sequences_pass
         data_type: double
-
   - name: sat_cider_vdj
     data_tests:
       - dbt_utils.unique_combination_of_columns:

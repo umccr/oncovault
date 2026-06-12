@@ -69,7 +69,6 @@ models:
         data_type: double
       - name: exon_down
         data_type: double
-
   - name: sat_linx_clusters
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -111,7 +110,6 @@ models:
         data_type: double
       - name: cluster_desc
         data_type: varchar
-
   - name: sat_linx_drivercatalog
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -175,7 +173,6 @@ models:
         data_type: double
       - name: max_cn
         data_type: double
-
   - name: sat_linx_drivers
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -211,7 +208,6 @@ models:
         data_type: varchar
       - name: event_type
         data_type: varchar
-
   - name: sat_linx_fusions
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -289,7 +285,6 @@ models:
         data_type: varchar
       - name: junction_cn
         data_type: double
-
   - name: sat_linx_links
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -353,7 +348,6 @@ models:
         data_type: varchar
       - name: ecdna
         data_type: varchar
-
   - name: sat_linx_neoepitope
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -419,7 +413,6 @@ models:
         data_type: varchar
       - name: transcripts_down
         data_type: varchar
-
   - name: sat_linx_svs
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -487,7 +480,6 @@ models:
         data_type: double
       - name: local_ti_count_end
         data_type: double
-
   - name: sat_linx_version
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -521,7 +513,6 @@ models:
         data_type: varchar
       - name: date_build
         data_type: varchar
-
   - name: sat_linx_viscn
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -561,7 +552,6 @@ models:
         data_type: double
       - name: baf
         data_type: double
-
   - name: sat_linx_visfusion
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -623,7 +613,6 @@ models:
         data_type: varchar
       - name: fused_exon_down
         data_type: varchar
-
   - name: sat_linx_visgeneexon
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -669,7 +658,6 @@ models:
         data_type: varchar
       - name: exon_end
         data_type: varchar
-
   - name: sat_linx_visproteindomain
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -711,7 +699,6 @@ models:
         data_type: varchar
       - name: info
         data_type: varchar
-
   - name: sat_linx_vissegments
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -755,7 +742,6 @@ models:
         data_type: double
       - name: in_double_minute
         data_type: varchar
-
   - name: sat_linx_vissvdata
     data_tests:
       - dbt_utils.unique_combination_of_columns:

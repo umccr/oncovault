@@ -43,7 +43,6 @@ models:
         data_type: bigint
       - name: mean
         data_type: double
-
   - name: sat_amber_contaminationtsv
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -93,7 +92,6 @@ models:
         data_type: bigint
       - name: altsup_tumor
         data_type: bigint
-
   - name: sat_amber_homozygousregion
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -137,7 +135,6 @@ models:
         data_type: bigint
       - name: filter
         data_type: varchar
-
   - name: sat_amber_qc
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -175,7 +172,6 @@ models:
         data_type: double
       - name: uniparental_disomy
         data_type: varchar
-
   - name: sat_amber_version
     data_tests:
       - dbt_utils.unique_combination_of_columns:

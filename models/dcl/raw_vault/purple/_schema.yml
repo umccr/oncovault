@@ -67,7 +67,6 @@ models:
         data_type: double
       - name: gc_content
         data_type: double
-
   - name: sat_purple_cnvsomtsv
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -129,7 +128,6 @@ models:
         data_type: double
       - name: cn_major_allele
         data_type: double
-
   - name: sat_purple_drivercatalog
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -193,7 +191,6 @@ models:
         data_type: double
       - name: cn_max
         data_type: double
-
   - name: sat_purple_germdeltsv
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -255,7 +252,6 @@ models:
         data_type: double
       - name: reported
         data_type: varchar
-
   - name: sat_purple_purityrange
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -297,7 +293,6 @@ models:
         data_type: double
       - name: somatic_penalty
         data_type: double
-
   - name: sat_purple_puritytsv
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -377,7 +372,6 @@ models:
         data_type: varchar
       - name: targeted
         data_type: varchar
-
   - name: sat_purple_qc
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -435,7 +429,6 @@ models:
         data_type: double
       - name: chimerism_percent
         data_type: double
-
   - name: sat_purple_somclonality
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -477,7 +470,6 @@ models:
         data_type: varchar
       - name: is_subclonal
         data_type: varchar
-
   - name: sat_purple_somhist
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -513,7 +505,6 @@ models:
         data_type: double
       - name: count
         data_type: double
-
   - name: sat_purple_version
     data_tests:
       - dbt_utils.unique_combination_of_columns:

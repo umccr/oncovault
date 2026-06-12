@@ -12,7 +12,7 @@
     )
 }}
 
-{% set source_table = 'bamtools_genecvggenes' %}
+{% set source_table = 'bamtools_genecvg_genes' %}
 
 with source as (
 

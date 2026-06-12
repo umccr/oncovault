@@ -45,7 +45,6 @@ models:
         data_type: varchar
       - name: remarks_hrd_type
         data_type: varchar
-
   - name: sat_chord_signatures
     data_tests:
       - dbt_utils.unique_combination_of_columns:

@@ -85,7 +85,6 @@ models:
         data_type: double
       - name: somatic_variants_unmatched
         data_type: double
-
   - name: sat_lilac_summary
     data_tests:
       - dbt_utils.unique_combination_of_columns:

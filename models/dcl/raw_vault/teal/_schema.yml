@@ -77,7 +77,6 @@ models:
         data_type: double
       - name: germ_mapq
         data_type: double
-
   - name: sat_teal_tellength
     data_tests:
       - dbt_utils.unique_combination_of_columns:

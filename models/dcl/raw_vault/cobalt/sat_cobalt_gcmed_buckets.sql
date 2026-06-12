@@ -12,7 +12,7 @@
     )
 }}
 
-{% set source_table = 'cobalt_gcmedsample' %}
+{% set source_table = 'cobalt_gcmed_buckets' %}
 
 with source as (
 
@@ -22,7 +22,7 @@ with source as (
         trim(regexp_replace(output_id, '[\n\r]+', '')) as batch_id,
         batch_date,
 
-        mean,
+        gc_bucket,
         median
 
     from
@@ -53,7 +53,7 @@ encoded as (
             generate_hash_diff([
                 'batch_id',
                 'batch_date',
-                'mean',
+                'gc_bucket',
                 'median'
             ])
         }} as hash_diff,
@@ -87,7 +87,7 @@ final as (
         cast(batch_id as varchar(26)) as batch_id,
         cast(batch_date as date) as batch_date,
 
-        cast(mean as double) as mean,
+        cast(gc_bucket as varchar) as gc_bucket,
         cast(median as double) as median
 
     from

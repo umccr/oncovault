@@ -99,7 +99,6 @@ models:
         data_type: varchar
       - name: coding_base_cigar_down
         data_type: varchar
-
   - name: sat_neo_predictions
     data_tests:
       - dbt_utils.unique_combination_of_columns:

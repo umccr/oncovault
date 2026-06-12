@@ -12,7 +12,7 @@
     )
 }}
 
-{% set source_table = 'bamtools_summarydp' %}
+{% set source_table = 'cobalt_gcmed_sample' %}
 
 with source as (
 
@@ -22,8 +22,8 @@ with source as (
         trim(regexp_replace(output_id, '[\n\r]+', '')) as batch_id,
         batch_date,
 
-        dp,
-        pct
+        mean,
+        median
 
     from
         {{ source('tidywigits', source_table) }}
@@ -53,8 +53,8 @@ encoded as (
             generate_hash_diff([
                 'batch_id',
                 'batch_date',
-                'dp',
-                'pct'
+                'mean',
+                'median'
             ])
         }} as hash_diff,
         *
@@ -87,8 +87,8 @@ final as (
         cast(batch_id as varchar(26)) as batch_id,
         cast(batch_date as date) as batch_date,
 
-        cast(dp as double) as dp,
-        cast(pct as double) as pct
+        cast(mean as double) as mean,
+        cast(median as double) as median
 
     from
         transformed

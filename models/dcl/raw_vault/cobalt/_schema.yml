@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: sat_cobalt_gcmedbuckets
+  - name: sat_cobalt_gcmed_buckets
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -33,8 +33,7 @@ models:
         data_type: varchar
       - name: median
         data_type: double
-
-  - name: sat_cobalt_gcmedsample
+  - name: sat_cobalt_gcmed_sample
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -67,7 +66,6 @@ models:
         data_type: double
       - name: median
         data_type: double
-
   - name: sat_cobalt_ratiomed
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -103,7 +101,6 @@ models:
         data_type: double
       - name: count
         data_type: double
-
   - name: sat_cobalt_ratiopcf
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -147,7 +144,6 @@ models:
         data_type: bigint
       - name: mean
         data_type: double
-
   - name: sat_cobalt_version
     data_tests:
       - dbt_utils.unique_combination_of_columns:

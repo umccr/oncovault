@@ -35,7 +35,6 @@ models:
         data_type: double
       - name: percent
         data_type: double
-
   - name: sat_sigs_snvcounts
     data_tests:
       - dbt_utils.unique_combination_of_columns:

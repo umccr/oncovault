@@ -33,7 +33,6 @@ models:
         data_type: varchar
       - name: count
         data_type: double
-
   - name: sat_peach_geneevents
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -69,7 +68,6 @@ models:
         data_type: varchar
       - name: count
         data_type: double
-
   - name: sat_peach_haplotypesall
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -107,7 +105,6 @@ models:
         data_type: double
       - name: count_non_wildtype
         data_type: double
-
   - name: sat_peach_haplotypesbest
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -149,7 +146,6 @@ models:
         data_type: varchar
       - name: prescription_urls
         data_type: varchar
-
   - name: sat_peach_qc
     data_tests:
       - dbt_utils.unique_combination_of_columns:

@@ -33,7 +33,6 @@ models:
         data_type: double
       - name: count
         data_type: double
-
   - name: sat_bamtools_exoncvg
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -75,7 +74,6 @@ models:
         data_type: double
       - name: dp_med
         data_type: double
-
   - name: sat_bamtools_flagstats
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -147,7 +145,6 @@ models:
         data_type: double
       - name: singletons_pct
         data_type: double
-
   - name: sat_bamtools_fraglength
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -181,8 +178,7 @@ models:
         data_type: varchar
       - name: count
         data_type: double
-
-  - name: sat_bamtools_genecvgcvg
+  - name: sat_bamtools_genecvg_cvg
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -217,8 +213,7 @@ models:
         data_type: varchar
       - name: value
         data_type: double
-
-  - name: sat_bamtools_genecvggenes
+  - name: sat_bamtools_genecvg_genes
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -257,7 +252,6 @@ models:
         data_type: double
       - name: missed_var_likelihood
         data_type: double
-
   - name: sat_bamtools_partitionstats
     data_tests:
       - dbt_utils.unique_combination_of_columns:
@@ -305,8 +299,7 @@ models:
         data_type: double
       - name: process_time
         data_type: double
-
-  - name: sat_bamtools_summarydp
+  - name: sat_bamtools_summary_dp
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -339,8 +332,7 @@ models:
         data_type: double
       - name: pct
         data_type: double
-
-  - name: sat_bamtools_summarystats
+  - name: sat_bamtools_summary_stats
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:

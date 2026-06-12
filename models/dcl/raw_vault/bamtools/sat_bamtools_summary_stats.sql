@@ -12,7 +12,7 @@
     )
 }}
 
-{% set source_table = 'cobalt_gcmedbuckets' %}
+{% set source_table = 'bamtools_summary_stats' %}
 
 with source as (
 
@@ -22,8 +22,20 @@ with source as (
         trim(regexp_replace(output_id, '[\n\r]+', '')) as batch_id,
         batch_date,
 
-        gc_bucket,
-        median
+        tot_region_bases,
+        tot_reads,
+        dup_reads,
+        dual_strand_reads,
+        cov_mean,
+        cov_sd,
+        cov_median,
+        cov_mad,
+        lowmapq_pct,
+        dup_pct,
+        unpaired_pct,
+        lowbaseq_pct,
+        overlap_read_pct,
+        cov_capped
 
     from
         {{ source('tidywigits', source_table) }}
@@ -53,8 +65,20 @@ encoded as (
             generate_hash_diff([
                 'batch_id',
                 'batch_date',
-                'gc_bucket',
-                'median'
+                'tot_region_bases',
+                'tot_reads',
+                'dup_reads',
+                'dual_strand_reads',
+                'cov_mean',
+                'cov_sd',
+                'cov_median',
+                'cov_mad',
+                'lowmapq_pct',
+                'dup_pct',
+                'unpaired_pct',
+                'lowbaseq_pct',
+                'overlap_read_pct',
+                'cov_capped'
             ])
         }} as hash_diff,
         *
@@ -87,8 +111,20 @@ final as (
         cast(batch_id as varchar(26)) as batch_id,
         cast(batch_date as date) as batch_date,
 
-        cast(gc_bucket as varchar) as gc_bucket,
-        cast(median as double) as median
+        cast(tot_region_bases as double) as tot_region_bases,
+        cast(tot_reads as double) as tot_reads,
+        cast(dup_reads as double) as dup_reads,
+        cast(dual_strand_reads as double) as dual_strand_reads,
+        cast(cov_mean as double) as cov_mean,
+        cast(cov_sd as double) as cov_sd,
+        cast(cov_median as double) as cov_median,
+        cast(cov_mad as double) as cov_mad,
+        cast(lowmapq_pct as double) as lowmapq_pct,
+        cast(dup_pct as double) as dup_pct,
+        cast(unpaired_pct as double) as unpaired_pct,
+        cast(lowbaseq_pct as double) as lowbaseq_pct,
+        cast(overlap_read_pct as double) as overlap_read_pct,
+        cast(cov_capped as double) as cov_capped
 
     from
         transformed

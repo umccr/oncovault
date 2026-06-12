@@ -12,7 +12,7 @@
     )
 }}
 
-{% set source_table = 'bamtools_genecvgcvg' %}
+{% set source_table = 'bamtools_summary_dp' %}
 
 with source as (
 
@@ -22,9 +22,8 @@ with source as (
         trim(regexp_replace(output_id, '[\n\r]+', '')) as batch_id,
         batch_date,
 
-        gene,
-        dr,
-        "value"
+        dp,
+        pct
 
     from
         {{ source('tidywigits', source_table) }}
@@ -54,9 +53,8 @@ encoded as (
             generate_hash_diff([
                 'batch_id',
                 'batch_date',
-                'gene',
-                'dr',
-                '"value"'
+                'dp',
+                'pct'
             ])
         }} as hash_diff,
         *
@@ -89,9 +87,8 @@ final as (
         cast(batch_id as varchar(26)) as batch_id,
         cast(batch_date as date) as batch_date,
 
-        cast(gene as varchar) as gene,
-        cast(dr as varchar) as dr,
-        cast("value" as double) as "value"
+        cast(dp as double) as dp,
+        cast(pct as double) as pct
 
     from
         transformed

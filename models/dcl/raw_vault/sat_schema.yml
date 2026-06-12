@@ -1,0 +1,44 @@
+version: 2
+
+models:
+
+  - name: sat_tidywigits_metadata_detail
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - workflow_run_hk
+              - load_date
+              - hash_diff
+
+    columns:
+      - name: workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('hub_workflow_run')
+                field: workflow_run_hk
+
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+
+      - name: input_dirs
+        data_type: array(varchar)
+      - name: output_dir
+        data_type: varchar
+      - name: pkg_versions
+        data_type: array(row(name varchar, version varchar))
+      - name: files
+        data_type: array(row(tbl varchar, prefix varchar, fout varchar, fin varchar))

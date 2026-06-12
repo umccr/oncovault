@@ -18,7 +18,7 @@ with source as (
 
     select
         trim(regexp_replace(input_id, '[\n\r]+', '')) as portal_run_id,
-        trim(regexp_replace(input_pfix, '[\n\r]+', '')) as library_id,
+        trim(regexp_replace(input_prefix, '[\n\r]+', '')) as library_id,
         trim(regexp_replace(output_id, '[\n\r]+', '')) as batch_id,
         batch_date,
 

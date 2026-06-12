@@ -1,0 +1,453 @@
+version: 2
+models:
+  - name: sat_esvee_assemblealignment
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: assembly_ids
+        data_type: varchar
+      - name: assembly_info
+        data_type: varchar
+      - name: ref_info
+        data_type: varchar
+      - name: raw_seq_coords
+        data_type: varchar
+      - name: adj_seq_coords
+        data_type: varchar
+      - name: map_qual
+        data_type: double
+      - name: cigar
+        data_type: varchar
+      - name: orientation
+        data_type: double
+      - name: aligned_bases
+        data_type: double
+      - name: score
+        data_type: double
+      - name: flags
+        data_type: double
+      - name: n_matches
+        data_type: double
+      - name: xa_tag
+        data_type: varchar
+      - name: md_tag
+        data_type: varchar
+      - name: calc_align_length
+        data_type: double
+      - name: mod_map_qual
+        data_type: double
+      - name: dropped_on_requery
+        data_type: varchar
+      - name: linked_alt_alignment
+        data_type: varchar
+  - name: sat_esvee_assembleassembly
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: id
+        data_type: varchar
+      - name: chrom
+        data_type: varchar
+      - name: junc_position
+        data_type: double
+      - name: junc_orientation
+        data_type: double
+      - name: junc_type
+        data_type: varchar
+      - name: ext_base_length
+        data_type: double
+      - name: ref_base_position
+        data_type: double
+      - name: ref_base_length
+        data_type: double
+      - name: ref_base_cigar
+        data_type: varchar
+      - name: split_frags
+        data_type: double
+      - name: ref_split_frags
+        data_type: double
+      - name: disc_frags
+        data_type: double
+      - name: ref_disc_frags
+        data_type: double
+      - name: outcome
+        data_type: varchar
+      - name: phase_group_id
+        data_type: double
+      - name: phase_group_count
+        data_type: double
+      - name: phase_set_id
+        data_type: varchar
+      - name: phase_set_count
+        data_type: double
+      - name: split_links
+        data_type: varchar
+      - name: facing_links
+        data_type: varchar
+      - name: sv_type
+        data_type: varchar
+      - name: sv_length
+        data_type: double
+      - name: inserted_bases
+        data_type: varchar
+      - name: overlap_bases
+        data_type: varchar
+      - name: secondary_links
+        data_type: varchar
+      - name: junc_sequence
+        data_type: varchar
+      - name: ref_base_sequence
+        data_type: varchar
+      - name: insert_type
+        data_type: varchar
+      - name: ref_base_candidates
+        data_type: double
+      - name: unmapped_candidates
+        data_type: double
+      - name: assembly_info
+        data_type: varchar
+  - name: sat_esvee_assemblebreakend
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: id
+        data_type: varchar
+      - name: phase_group_id
+        data_type: varchar
+      - name: phase_set_id
+        data_type: varchar
+      - name: assembly_id
+        data_type: varchar
+      - name: mate_id
+        data_type: varchar
+      - name: assembly_info
+        data_type: varchar
+      - name: type
+        data_type: varchar
+      - name: chrom
+        data_type: varchar
+      - name: position
+        data_type: double
+      - name: orientation
+        data_type: double
+      - name: mate_chr
+        data_type: varchar
+      - name: mate_pos
+        data_type: double
+      - name: mate_orient
+        data_type: double
+      - name: length
+        data_type: double
+      - name: inserted_bases
+        data_type: varchar
+      - name: homology
+        data_type: varchar
+      - name: confidence_interval
+        data_type: varchar
+      - name: inexact_offset
+        data_type: varchar
+      - name: qual
+        data_type: double
+      - name: split_fragments
+        data_type: double
+      - name: ref_split_fragments
+        data_type: double
+      - name: disc_fragments
+        data_type: double
+      - name: ref_disc_fragments
+        data_type: double
+      - name: forward_reads
+        data_type: double
+      - name: reverse_reads
+        data_type: double
+      - name: sequence_length
+        data_type: double
+      - name: segment_count
+        data_type: double
+      - name: segment_index
+        data_type: double
+      - name: sequence_index
+        data_type: double
+      - name: aligned_bases
+        data_type: double
+      - name: map_qual
+        data_type: double
+      - name: score
+        data_type: double
+      - name: adj_aligned_bases
+        data_type: double
+      - name: avg_fragment_length
+        data_type: double
+      - name: incomplete_fragments
+        data_type: double
+      - name: breakend_qual
+        data_type: double
+      - name: facing_breakend_ids
+        data_type: varchar
+      - name: alt_alignments
+        data_type: varchar
+      - name: insertion_type
+        data_type: varchar
+      - name: unique_frag_pos
+        data_type: double
+      - name: closest_assembly
+        data_type: varchar
+      - name: non_primary_frags
+        data_type: double
+  - name: sat_esvee_assemblephased
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: assembly_ids
+        data_type: varchar
+      - name: assembly_info
+        data_type: varchar
+      - name: merged
+        data_type: varchar
+      - name: sequence_length
+        data_type: double
+      - name: assembly_cigar
+        data_type: varchar
+      - name: full_sequence
+        data_type: varchar
+  - name: sat_esvee_prepdiscstats
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: tot_reads
+        data_type: double
+      - name: prep_reads
+        data_type: double
+      - name: translocation
+        data_type: double
+      - name: inv_lt_1k
+        data_type: double
+      - name: inv_1_to_5k
+        data_type: double
+      - name: inv_5_to_100k
+        data_type: double
+      - name: inv_gt_100k
+        data_type: double
+      - name: del_1_to_5k
+        data_type: double
+      - name: del_5_to_100k
+        data_type: double
+      - name: del_gt_100k
+        data_type: double
+      - name: dup_1_to_5k
+        data_type: double
+      - name: dup_5_to_100k
+        data_type: double
+      - name: dup_gt_100k
+        data_type: double
+  - name: sat_esvee_prepfraglen
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: fragment_length
+        data_type: double
+      - name: count
+        data_type: double
+  - name: sat_esvee_prepjunction
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - library_workflow_run_hk
+              - load_date
+              - hash_diff
+    columns:
+      - name: library_workflow_run_hk
+        data_type: varchar(64)
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('link_library_workflow_run')
+                field: library_workflow_run_hk
+      - name: load_date
+        data_type: date
+      - name: hash_diff
+        data_type: varchar(64)
+      - name: record_source
+        data_type: varchar(255)
+      - name: last_seen_datetime
+        data_type: timestamp
+      - name: batch_id
+        data_type: varchar(26)
+      - name: batch_date
+        data_type: date
+      - name: chrom
+        data_type: varchar
+      - name: position
+        data_type: double
+      - name: orientation
+        data_type: double
+      - name: junc_frags
+        data_type: double
+      - name: exact_support_frags
+        data_type: double
+      - name: other_support_frags
+        data_type: double
+      - name: low_map_qual_frags
+        data_type: double
+      - name: max_qual
+        data_type: double
+      - name: extra_info
+        data_type: double
+      - name: indel
+        data_type: varchar
+      - name: hotspot
+        data_type: varchar
+      - name: initial_read_id
+        data_type: varchar

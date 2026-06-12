@@ -71,6 +71,11 @@ up-schema-cuppa:
 	@yq eval-all '. as $$item ireduce ({}; . *+ $$item)' $(TRANSLATOR_VERSION)/dcl/cuppa*.yml > $(CUPPA_SCHEMA)
 	@yq -i -I2 -P -N '.' $(CUPPA_SCHEMA)
 
+ESVEE_SCHEMA = models/dcl/raw_vault/esvee/_schema.yml
+up-schema-esvee:
+	@yq eval-all '. as $$item ireduce ({}; . *+ $$item)' $(TRANSLATOR_VERSION)/dcl/esvee*.yml > $(ESVEE_SCHEMA)
+	@yq -i -I2 -P -N '.' $(ESVEE_SCHEMA)
+
 LILAC_SCHEMA = models/dcl/raw_vault/lilac/_schema.yml
 up-schema-lilac:
 	@yq eval-all '. as $$item ireduce ({}; . *+ $$item)' $(TRANSLATOR_VERSION)/dcl/lilac*.yml > $(LILAC_SCHEMA)
@@ -132,6 +137,7 @@ up-schema-all: \
 	up-schema-cider \
 	up-schema-cobalt \
 	up-schema-cuppa \
+	up-schema-esvee \
 	up-schema-lilac \
 	up-schema-linx \
 	up-schema-neo \

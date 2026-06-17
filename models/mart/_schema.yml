@@ -1,0 +1,16 @@
+version: 2
+
+models:
+
+# TODO
+#  Impl Note:
+#  This might not be the final arrangement for the data mart yet.
+#  Parking the model code here for now as the run meta warehouse
+#  (OrcaVault) renovation work needs to catch up before finalising
+#  the data mart design.
+
+  - name: purple_qc
+    description: Listing of the Centre genomic sequencing analysis result PURPLE QC metrics in flat table model
+
+  - name: amber_qc
+    description: Listing of the Centre genomic sequencing analysis result AMBER QC metrics in flat table model

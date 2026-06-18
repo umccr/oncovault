@@ -15,11 +15,14 @@ clean-targets:
   - "dbt_packages"
 
 vars:
-  initial_batch_date: "2026-01-01"
+  initial_batch_date: "2026-06-10"
 
 models:
   oncovault:
     +materialized: view
     dcl:
       +schema: dcl
+      +materialized: table
+    mart:
+      +schema: mart
       +materialized: table

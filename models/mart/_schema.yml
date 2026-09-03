@@ -1,16 +1,18 @@
-version: 2
-
-models:
-
 # TODO
-#  Impl Note:
-#  This might not be the final arrangement for the data mart yet.
-#  Parking the model code here for now as the run meta warehouse
-#  (OrcaVault) renovation work needs to catch up before finalising
-#  the data mart design.
+#  This is _NOT_ the final arrangement for the data mart yet.
+#  Starting this way before finalising the data mart design.
+#  Commented out model config declaration below.
+#  Pass-through and expose all satellites.
+#  So that analytical users can start querying and experimenting with tables.
+#  Based on warehouse meetup discussion 2026-08-26.
+#  ~victor
 
-  - name: purple_qc
-    description: Listing of the Centre genomic sequencing analysis result PURPLE QC metrics in flat table model
-
-  - name: amber_qc
-    description: Listing of the Centre genomic sequencing analysis result AMBER QC metrics in flat table model
+#version: 2
+#
+#models:
+#
+#  - name: purple_qc
+#    description: Listing of the Centre genomic sequencing analysis result PURPLE QC metrics in flat table model
+#
+#  - name: amber_qc
+#    description: Listing of the Centre genomic sequencing analysis result AMBER QC metrics in flat table model

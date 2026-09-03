@@ -41,6 +41,7 @@ final as (
         cast(portal_run_id as varchar(16)) as portal_run_id,
         cast(portal_run_date as date) as portal_run_date,
         cast(library_id as varchar(64)) as library_id,
+
         cast(qc_status as varchar) as qc_status,
         cast("method" as varchar) as "method",
         cast(cn_segments as bigint) as cn_segments,
